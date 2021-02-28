@@ -1,0 +1,37 @@
+<div [className]="'recipeContainer'">
+  <h1 *ngIf="recipes && recipes.length === 0">
+    No Recipes found...
+  </h1>
+  <div [className]="'recipe-container'" *ngFor="let index of recipes">
+    <div [className]="'recipe-title-short-desc'">
+      <span [className]="'recipe-title'">{{index.recipe.label}}</span>
+      <br/>
+      <div [className]="'recipe-short-desc-container'">
+        <span [className]="'recipe-short-desc'">
+          Recipe: <a href='{{index.recipe.url}}'>{{index.recipe.source}}</a>
+        </span>
+        <span [className]="'recipe-short-desc'">
+          Ingredients required: {{index.recipe.ingredients.length}}
+        </span>
+      </div>
+    </div>
+    <br/>
+    <div [className]="'centering recipeBox'">
+      <div [className]="'centering'">
+        <img src="{{index.recipe.image}}" alt="{{index.recipe.label}}"/>
+        <div [className]="'centering tag-container'">
+          <div [className]="'recipe-tag'" *ngFor="let label of index.recipe.healthLabels">
+            {{label}}
+          </div>
+        </div>
+      </div>
+      <div [className]="'centering ingredients'">
+        <ul [className]="'ingredients-list'">
+          <li *ngFor="let ing of index.recipe.ingredients">
+            {{ing.text}}
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
