@@ -13,7 +13,7 @@ export class DataService {
   ) { }
 
   getRecepies = (value) => {
-    return this.http.post('http://localhost:1337/api/recipes', {keyword: value})
+    return this.http.post('https://lyrical-shore-306300.ew.r.appspot.com/api/recipes', {keyword: value})
       .pipe(map((data: any) => {
         return data;
       }), catchError( error => {

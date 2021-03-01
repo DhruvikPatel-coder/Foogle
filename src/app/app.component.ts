@@ -28,8 +28,7 @@ export class AppComponent {
     this.dataService
       .getRecepies(this.checkoutForm.value.search)
       .subscribe((data: any) => {
-        console.log('subscribed data', data.hits.hits);
-        this.recipes = data.hits.hits;
+        this.recipes = data.hits;
         this.ngxService.stop();
       });
     this.ngxService.stop();
